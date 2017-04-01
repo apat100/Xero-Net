@@ -23,7 +23,7 @@ namespace Xero.Api.Example.MVC.Helpers
         static XeroApiHelper()
         {
             // Refer to README.md for details
-            var callbackUrl = "http://mywebsite.url/Home/Authorize";
+            var callbackUrl = "http://xeroapi.example/Home/Authorize";
             var memoryStore = new MemoryAccessTokenStore();
             var requestTokenStore = new MemoryRequestTokenStore();
             var baseApiUrl = "https://api.xero.com";
@@ -50,6 +50,7 @@ namespace Xero.Api.Example.MVC.Helpers
                 };
 
             // Partner Application Settings
+            /*
             var partnerConsumer = new Consumer(consumerKey, consumerSecret);
 
             var partnerAuthenticator = new PartnerMvcAuthenticator(baseApiUrl, baseApiUrl, callbackUrl,
@@ -62,12 +63,12 @@ namespace Xero.Api.Example.MVC.Helpers
                 Consumer = partnerConsumer,
                 Authenticator = partnerAuthenticator
             };
-
+            */
             // Pick one
             // Choose what sort of application is appropriate. Comment out the above code (Partner Application Settings/Public Application Settings) that are not used.
 
-            //_applicationSettings = publicApplicationSettings;
-            _applicationSettings = partnerApplicationSettings;
+            _applicationSettings = publicApplicationSettings;
+            //_applicationSettings = partnerApplicationSettings;
         }
 
         public static ApiUser User()

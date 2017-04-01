@@ -73,7 +73,7 @@ namespace Xero.Api.Infrastructure.OAuth
             
             req.AddHeader("Authorization", header);
 
-            var response = req.Post(endPoint, string.Empty);
+            var response = req.Post(endPoint, string.Empty, query: "TenantType=PRACTICE");
 
             if (response.StatusCode != HttpStatusCode.OK)
             {

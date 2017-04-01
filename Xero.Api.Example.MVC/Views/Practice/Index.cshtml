@@ -1,0 +1,36 @@
+﻿@using System.Web.UI.WebControls
+@model Xero.Api.Example.MVC.Models.PracticeView
+
+@{
+    ViewBag.Title = "Practice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Practice Details</h2>
+
+@using (Html.BeginForm())
+{
+    <div>Client: @Html.DropDownList("ClientId", new SelectList(Model.Clients.Select(c => new ListItem {Text = c.Name, Value = c.Id}), "Value", "Text"))</div>
+    <div>Alert Type: @Html.TextBox("AlertType", "Test")</div>
+    <div>Action: @Html.TextBox("ActionLabel", "View")</div>
+    <div>Link: @Html.TextBox("ActionLink", "http://www.xero.com")</div>
+
+    <input type="submit" value="Create Alert" />
+}
+
+@if (Model.Alert != null)
+{
+    <h2>Alert Details</h2>
+    <div>Id: @Model.Alert.Id</div>
+    <div>Type: @Model.Alert.Type</div>
+    <div>TargetType: @Model.Alert.TargetType</div>
+    <div>TargetId: @Model.Alert.TargetId</div>
+}
+
+@if (Model.Errors.Any())
+{
+    foreach (var error in Model.Errors)
+    {
+        <div>@error.Message</div>
+    }
+}
