@@ -29,6 +29,16 @@ There are different way to install this library:
 ## Xero HQ
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a2ee78eb5b84cb59ea61)
 
+1. Run `Load Helper Scripts` request
+2. Copy your public application's Consumer Key to global variable `ConsumerKey`
+3. Copy your public application's Consumer Secret to global variable `ConsumerSecret`
+4. Run `GET Request Token` request
+5. Copy `AuthorizeUrl` global variable to browser and login to xero
+6. Authorize connection and copy PIN
+7. Paste PIN into `VerifierPIN` global variable
+8. Run `GET Access Token` request (Access token valid for 30min)
+9. Run any Xero HQ API requests
+
 ## What is supported?
 ### Core
 * Accounts - Create, Find and Update
