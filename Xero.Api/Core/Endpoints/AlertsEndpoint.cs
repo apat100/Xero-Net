@@ -8,6 +8,7 @@ using Xero.Api.Core.Response;
 using Xero.Api.Infrastructure.Exceptions;
 using Xero.Api.Infrastructure.Http;
 using Xero.Api.Infrastructure.Model;
+using Xero.Api.Infrastructure.ThirdParty.ServiceStack.Text;
 
 namespace Xero.Api.Core.Endpoints
 {
@@ -28,6 +29,7 @@ namespace Xero.Api.Core.Endpoints
         public Alert Create(Alert alert)
         {
             var endpoint = "xero.hq/1.0/alerts";
+            JsConfig.DateHandler = JsonDateHandler.ISO8601;
             var resp = Client.Client.Post(endpoint, Client.JsonMapper.To(alert), "application/json");
             return HandleAlertResponse(resp);
         }

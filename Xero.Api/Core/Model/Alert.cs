@@ -9,7 +9,7 @@ namespace Xero.Api.Core.Model
     public class Alert
     {
         [DataMember(EmitDefaultValue = false)]
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         [DataMember(EmitDefaultValue = false)]
         public string Type { get; set; }
         [DataMember(EmitDefaultValue = false)]
@@ -18,5 +18,7 @@ namespace Xero.Api.Core.Model
         public Guid TargetId { get; set; }
         [DataMember(EmitDefaultValue = false)]
         public IList<AlertAction> Actions { get; set; }
+        [DataMember(EmitDefaultValue = false)]
+        public AlertDataTest AdditionalData { get; set; }
     }
 }

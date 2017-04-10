@@ -58,7 +58,12 @@ namespace Xero.Api.Example.MVC.Controllers
                     Type = alertData.AlertType,
                     TargetType = "CLIENT",
                     TargetId = alertData.ClientId,
-                    Actions = new List<AlertAction>()
+                    AdditionalData = new AlertDataTest
+                    {
+                        App = "Xero.Api.Example.MVC Test App",
+                        Date = DateTime.UtcNow
+                    },
+                    Actions = new List<AlertAction>
                     {
                         new AlertAction
                         {
