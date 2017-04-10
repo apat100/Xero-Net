@@ -26,6 +26,9 @@ There are different way to install this library:
 2. Download directly into Visual Studio using the NuGet powershell command **PM&gt; Install-Package Xero.API.SDK.Minimal** to get a minimal installation.
 3. Download directly into Visual Studio using the NuGet powershell command: **PM&gt; Install-Package Xero.API.SDK** to get a larger installation with sample token store using [SQLite](http://system.data.sqlite.org/).
 
+## Xero HQ
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a2ee78eb5b84cb59ea61)
+
 ## What is supported?
 ### Core
 * Accounts - Create, Find and Update
