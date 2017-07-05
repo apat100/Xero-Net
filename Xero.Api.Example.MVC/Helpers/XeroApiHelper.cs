@@ -24,7 +24,7 @@ namespace Xero.Api.Example.MVC.Helpers
         static XeroApiHelper()
         {
             // Refer to README.md for details
-            var callbackUrl = "http://xeroapi.example/Home/Authorize";
+            var callbackUrl = "http://mywebsite.url/Home/Authorize";
             var memoryStore = new MemoryAccessTokenStore();
             var requestTokenStore = new MemoryRequestTokenStore();
             var baseApiUrl = "https://api.xero.com";
