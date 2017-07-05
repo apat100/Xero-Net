@@ -3,6 +3,7 @@ using Xero.Api.Core;
 using Xero.Api.Example.Applications.Partner;
 using Xero.Api.Example.Applications.Public;
 using Xero.Api.Example.MVC.Stores;
+using Xero.Api.HQ;
 using Xero.Api.Infrastructure.Interfaces;
 using Xero.Api.Infrastructure.OAuth;
 using Xero.Api.Serialization;
