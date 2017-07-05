@@ -52,6 +52,7 @@ namespace Xero.Api.Serialization
         {
             BuildCore();
             BuildPayroll();
+            BuildPractice();
         }
 
         private void BuildPayroll()
@@ -140,6 +141,11 @@ namespace Xero.Api.Serialization
             JsConfig<SuperannuationContributionType>.DeSerializeFn = EnumDeserializer<SuperannuationContributionType>;
             JsConfig<SuperfundType>.DeSerializeFn = EnumDeserializer<SuperfundType>;
             JsConfig<TaxFileNumberExemptionType>.DeSerializeFn = EnumDeserializer<TaxFileNumberExemptionType>;
+        }
+
+        private void BuildPractice()
+        {
+            JsConfig<BusinessStructure>.DeSerializeFn = EnumDeserializer<BusinessStructure>;
         }
 
         private static TEnum EnumDeserializer<TEnum>(string s)

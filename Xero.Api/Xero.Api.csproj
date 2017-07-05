@@ -63,8 +63,6 @@
     <Compile Include="Core\Endpoints\AlertsEndpoint.cs" />
     <Compile Include="Core\Model\AlertAction.cs" />
     <Compile Include="Core\Model\Alert.cs" />
-    <Compile Include="Core\Model\Person.cs" />
-    <Compile Include="Core\Model\Business.cs" />
     <Compile Include="Core\Model\Client.cs" />
     <Compile Include="Core\Model\OnlineInvoice.cs" />
     <Compile Include="Core\IXeroCoreApi.cs" />
@@ -78,6 +76,7 @@
     <Compile Include="Core\Model\Status\TrackingOptionStatus.cs" />
     <Compile Include="Core\Model\AlertDataTest.cs" />
     <Compile Include="Core\Model\Types\BankAccountType.cs" />
+    <Compile Include="Core\Model\Types\BusinessStructure.cs" />
     <Compile Include="Core\Model\Types\LinkedTransactionType.cs" />
     <Compile Include="Core\Model\Types\ObjectGroupType.cs" />
     <Compile Include="Core\Model\Types\ObjectType.cs" />

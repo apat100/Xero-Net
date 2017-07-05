@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm())
 {
-    <div>Client: @Html.DropDownList("ClientId", new SelectList(Model.Clients.Select(c => new ListItem {Text = c.Name, Value = c.Id}), "Value", "Text"))</div>
+    <div>Client: @Html.DropDownList("ClientId", new SelectList(Model.Clients.Select(c => new ListItem {Text = c.DisplayName, Value = c.Id}), "Value", "Text"))</div>
     <div>Alert Type: @Html.TextBox("AlertType", "CLIENT_ALERT_TEST")</div>
     <div>Action: @Html.TextBox("ActionLabel", "View")</div>
     <div>Link: @Html.TextBox("ActionLink", "http://www.xero.com")</div>

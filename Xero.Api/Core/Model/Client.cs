@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
+using Xero.Api.Core.Model.Types;
 
 namespace Xero.Api.Core.Model
 {
@@ -14,23 +15,31 @@ namespace Xero.Api.Core.Model
         [DataMember(EmitDefaultValue = false)]
         public string XeroOrganisationId { get; set; }
         [DataMember(EmitDefaultValue = false)]
-        public Business Business { get; set; }
+        public string Name { get; set; }
         [DataMember(EmitDefaultValue = false)]
-        public Person Person { get; set; }
-
-        public string Name
+        public string FirstName { get; set; }
+        [DataMember(EmitDefaultValue = false)]
+        public string LastName { get; set; }
+        [DataMember]
+        public BusinessStructure BusinessStructure { get; set; }
+        
+        public string DisplayName
         {
             get
             {
-                string name = " ";
-                if (Business != null)
+                string name;
+
+                switch (BusinessStructure)
                 {
-                    name = Business.Name;
+                    case BusinessStructure.Person:
+                    case BusinessStructure.SoleTrader:
+                        name = string.Format("{0} {1}", FirstName, LastName);
+                        break;
+                    default:
+                        name = Name;
+                        break;
                 }
-                else if (Person != null)
-                {
-                    name = string.Format("{0} {1}", Person.FirstName, Person.LastName);
-                }
+
                 return name;
             }
         }
