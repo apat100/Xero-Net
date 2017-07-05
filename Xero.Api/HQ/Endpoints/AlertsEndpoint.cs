@@ -27,6 +27,7 @@ namespace Xero.Api.HQ.Endpoints
         {
             var endpoint = "xero.hq/1.0/alerts";
             JsConfig.DateHandler = JsonDateHandler.ISO8601;
+            JsConfig.EmitCamelCaseNames = true;
             var resp = Client.Client.Post(endpoint, Client.JsonMapper.To(alert), "application/json");
             return HandleAlertResponse(resp);
         }

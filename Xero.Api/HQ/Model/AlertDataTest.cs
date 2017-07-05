@@ -10,7 +10,7 @@ namespace Xero.Api.HQ.Model
     public class AlertDataTest
     {
         [DataMember(EmitDefaultValue = false)]
-        public string App { get; set; }
+        public string AppName { get; set; }
         [DataMember(EmitDefaultValue = false)]
         public DateTime Date { get; set; }
     }

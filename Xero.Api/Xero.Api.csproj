@@ -61,6 +61,7 @@
     <Compile Include="Core\Endpoints\InboxEndpoint.cs" />
     <Compile Include="Core\Endpoints\LinkedTransactionsEndpoint.cs" />
     <Compile Include="HQ\Endpoints\AlertsEndpoint.cs" />
+    <Compile Include="HQ\Model\AlertAccess.cs" />
     <Compile Include="HQ\Model\AlertAction.cs" />
     <Compile Include="HQ\Model\Alert.cs" />
     <Compile Include="HQ\Model\Client.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Core\Model\Status\TrackingOptionStatus.cs" />
     <Compile Include="HQ\Model\AlertDataTest.cs" />
     <Compile Include="Core\Model\Types\BankAccountType.cs" />
+    <Compile Include="HQ\Model\Types\AlertAccessTo.cs" />
     <Compile Include="HQ\Model\Types\BusinessStructure.cs" />
     <Compile Include="Core\Model\Types\LinkedTransactionType.cs" />
     <Compile Include="Core\Model\Types\ObjectGroupType.cs" />

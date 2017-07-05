@@ -9,6 +9,7 @@ using Xero.Api.Example.Applications.Public;
 using Xero.Api.Example.MVC.Helpers;
 using Xero.Api.Example.MVC.Models;
 using Xero.Api.HQ;
+using Xero.Api.HQ.Model.Types;
 using Xero.Api.Infrastructure.Exceptions;
 using Xero.Api.Infrastructure.Model;
 
@@ -58,9 +59,13 @@ namespace Xero.Api.Example.MVC.Controllers
                     Type = alertData.AlertType,
                     TargetType = "CLIENT",
                     TargetId = alertData.ClientId,
+                    Access = new AlertAccess
+                    {
+                        To = AlertAccessTo.AllUsers
+                    },
                     AdditionalData = new AlertDataTest
                     {
-                        App = "Xero.Api.Example.MVC Test App",
+                        AppName = alertData.AppName,
                         Date = DateTime.UtcNow
                     },
                     Actions = new List<AlertAction>

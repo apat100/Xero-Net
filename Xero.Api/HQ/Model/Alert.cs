@@ -17,6 +17,8 @@ namespace Xero.Api.HQ.Model
         [DataMember(EmitDefaultValue = false)]
         public Guid TargetId { get; set; }
         [DataMember(EmitDefaultValue = false)]
+        public AlertAccess Access { get; set; }
+        [DataMember(EmitDefaultValue = false)]
         public IList<AlertAction> Actions { get; set; }
         [DataMember(EmitDefaultValue = false)]
         public AlertDataTest AdditionalData { get; set; }

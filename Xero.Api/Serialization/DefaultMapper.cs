@@ -53,7 +53,7 @@ namespace Xero.Api.Serialization
         {
             BuildCore();
             BuildPayroll();
-            BuildPractice();
+            BuildHQ();
         }
 
         private void BuildPayroll()
@@ -144,7 +144,7 @@ namespace Xero.Api.Serialization
             JsConfig<TaxFileNumberExemptionType>.DeSerializeFn = EnumDeserializer<TaxFileNumberExemptionType>;
         }
 
-        private void BuildPractice()
+        private void BuildHQ()
         {
             JsConfig<BusinessStructure>.DeSerializeFn = EnumDeserializer<BusinessStructure>;
         }
