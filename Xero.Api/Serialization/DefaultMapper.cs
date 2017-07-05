@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Xero.Api.Core.Model.Status;
 using Xero.Api.Core.Model.Types;
+using Xero.Api.HQ.Model.Types;
 using Xero.Api.Infrastructure.Interfaces;
 using Xero.Api.Infrastructure.ThirdParty.ServiceStack.Text;
 using Xero.Api.Payroll.America.Model.Types;

@@ -71,7 +71,6 @@ namespace Xero.Api.Core
         public ITaxRatesEndpoint TaxRates { get; private set; }
         public ITrackingCategoriesEndpoint TrackingCategories { get; private set; }
         public IUsersEndpoint Users { get; private set; }
-        public IAlertsEndpoint Alerts { get; private set; }
 
         private void Connect()
         {
@@ -110,8 +109,6 @@ namespace Xero.Api.Core
             TaxRates = new TaxRatesEndpoint(Client);
             TrackingCategories = new TrackingCategoriesEndpoint(Client);
             Users = new UsersEndpoint(Client);
-            Clients = new ClientsEndpoint(Client);
-            Alerts = new AlertsEndpoint(Client);
         }
 
         public Organisation Organisation
@@ -530,17 +527,6 @@ namespace Xero.Api.Core
         public TrackingCategory Update(TrackingCategory item)
         {
             return TrackingCategories.Update(item);
-        }
-
-        #endregion
-
-        #region Xero HQ
-
-        public IClientsEndpoint Clients { get; private set; }
-
-        public Alert Create(Alert item)
-        {
-            return Alerts.Create(item);
         }
 
         #endregion

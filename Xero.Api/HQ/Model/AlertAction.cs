@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Xero.Api.Core.Model
+namespace Xero.Api.HQ.Model
 {
     public class AlertAction
     {

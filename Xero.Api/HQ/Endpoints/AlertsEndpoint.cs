@@ -1,16 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Xero.Api.Core.Endpoints.Base;
-using Xero.Api.Core.Model;
-using Xero.Api.Core.Request;
-using Xero.Api.Core.Response;
+using Xero.Api.HQ.Model;
 using Xero.Api.Infrastructure.Exceptions;
 using Xero.Api.Infrastructure.Http;
 using Xero.Api.Infrastructure.Model;
 using Xero.Api.Infrastructure.ThirdParty.ServiceStack.Text;
 
-namespace Xero.Api.Core.Endpoints
+namespace Xero.Api.HQ.Endpoints
 {
     public interface IAlertsEndpoint
     {

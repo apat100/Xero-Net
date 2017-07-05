@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Xero.Api.Core.Model
+namespace Xero.Api.HQ.Model
 {
     public class Alert
     {

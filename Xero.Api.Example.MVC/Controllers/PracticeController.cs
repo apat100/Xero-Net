@@ -4,11 +4,11 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Xero.Api.Core;
-using Xero.Api.Core.Model;
+using Xero.Api.HQ.Model;
 using Xero.Api.Example.Applications.Public;
 using Xero.Api.Example.MVC.Helpers;
 using Xero.Api.Example.MVC.Models;
+using Xero.Api.HQ;
 using Xero.Api.Infrastructure.Exceptions;
 using Xero.Api.Infrastructure.Model;
 
@@ -16,11 +16,11 @@ namespace Xero.Api.Example.MVC.Controllers
 {
     public class PracticeController : Controller
     {
-        private IXeroCoreApi _api;
+        private IXeroHQApi _api;
 
         public PracticeController()
         {
-            _api = XeroApiHelper.CoreApi();
+            _api = XeroApiHelper.HQApi();
         }
 
         [HttpGet]

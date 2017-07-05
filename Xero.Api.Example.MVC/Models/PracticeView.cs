@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Xero.Api.Core.Model;
+using Xero.Api.HQ.Model;
 using Xero.Api.Infrastructure.Model;
 
 namespace Xero.Api.Example.MVC.Models

@@ -96,5 +96,16 @@ namespace Xero.Api.Example.MVC.Helpers
            
             return null;
         }
+
+        public static IXeroHQApi HQApi()
+        {
+            if (_applicationSettings.Authenticator is IAuthenticator)
+            {
+                return new XeroHQApi(_applicationSettings.BaseApiUrl, _applicationSettings.Authenticator as IAuthenticator,
+                    _applicationSettings.Consumer, User(), new DefaultMapper(), new DefaultMapper());
+            }
+
+            return null;
+        }
     }
 }

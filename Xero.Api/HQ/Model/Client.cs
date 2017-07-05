@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using Xero.Api.Core.Model.Types;
+using Xero.Api.HQ.Model.Types;
 
-namespace Xero.Api.Core.Model
+namespace Xero.Api.HQ.Model
 {
     [DataContract(Namespace = "")]
     public class Client

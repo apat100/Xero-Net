@@ -152,9 +152,5 @@ namespace Xero.Api.Core
         TrackingCategory Update(TrackingCategory item);
 
         void SummarizeErrors(bool summarize);
-
-        //Xero HQ
-        IClientsEndpoint Clients { get; }
-        Alert Create(Alert item);
     }
 }

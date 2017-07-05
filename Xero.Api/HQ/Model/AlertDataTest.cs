@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using Xero.Api.Infrastructure.ThirdParty.ServiceStack.Text;
 
-namespace Xero.Api.Core.Model
+namespace Xero.Api.HQ.Model
 {
     public class AlertDataTest
     {

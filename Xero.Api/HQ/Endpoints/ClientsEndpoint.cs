@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Xero.Api.Common;
-using Xero.Api.Core.Endpoints.Base;
-using Xero.Api.Core.Model;
-using Xero.Api.Core.Request;
-using Xero.Api.Core.Response;
+using Xero.Api.HQ.Response;
+using Xero.Api.HQ.Model;
 using Xero.Api.Infrastructure.Exceptions;
 using Xero.Api.Infrastructure.Http;
 using Xero.Api.Infrastructure.Model;
 
-namespace Xero.Api.Core.Endpoints
+namespace Xero.Api.HQ.Endpoints
 {
     public interface IClientsEndpoint
     {
