@@ -6,6 +6,7 @@ namespace Xero.Api.Infrastructure.Interfaces
     {
         string ConsumerKey { get; }
         string ConsumerSecret { get; }
+        ITenant Tenant { get; }
     }
 
     public interface IToken
@@ -24,5 +25,7 @@ namespace Xero.Api.Infrastructure.Interfaces
 
         bool HasExpired { get; }
         bool HasSessionExpired { get; }
+
+        ITenant Tenant { get; }
     }
 }

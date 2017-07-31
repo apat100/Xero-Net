@@ -43,5 +43,7 @@ namespace Xero.Api.Infrastructure.OAuth
                 return SessionExpiresAt < DateTime.UtcNow;
             }
         }
+
+        public ITenant Tenant { get; set; }
     }
 }

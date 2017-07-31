@@ -24,10 +24,14 @@ namespace Xero.Api.Example.MVC.Helpers
         static XeroApiHelper()
         {
             // Refer to README.md for details
-            var callbackUrl = "http://mywebsite.url/Home/Authorize";
+            var callbackUrl = "http://localhost:61795/Home/Authorize";
             var memoryStore = new MemoryAccessTokenStore();
             var requestTokenStore = new MemoryRequestTokenStore();
             var baseApiUrl = "https://api.xero.com";
+
+            //Choose to connect to an Organisation or a Practice tenant
+            //var tenant = new Organisation();
+            var tenant = new Practice();
 
             // Consumer details for Application
             var consumerKey = "your-consumer-key";
@@ -38,7 +42,7 @@ namespace Xero.Api.Example.MVC.Helpers
             var signingCertificatePassword = "Your_signing_cert_password - leave empty if you didn't set one when creating the cert";
 
             // Public Application Settings
-            var publicConsumer = new Consumer(consumerKey, consumerSecret);
+            var publicConsumer = new Consumer(consumerKey, consumerSecret, tenant);
 
             var publicAuthenticator = new PublicMvcAuthenticator(baseApiUrl, baseApiUrl, callbackUrl, memoryStore, 
                 publicConsumer, requestTokenStore);
@@ -52,7 +56,7 @@ namespace Xero.Api.Example.MVC.Helpers
 
             // Partner Application Settings
             /*
-            var partnerConsumer = new Consumer(consumerKey, consumerSecret);
+            var partnerConsumer = new Consumer(consumerKey, consumerSecret, tenant);
 
             var partnerAuthenticator = new PartnerMvcAuthenticator(baseApiUrl, baseApiUrl, callbackUrl,
                     memoryStore, signingCertificatePath, 

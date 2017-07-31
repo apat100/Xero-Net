@@ -51,7 +51,7 @@ namespace Xero.Api.Infrastructure.OAuth
 
         public IToken GetRequestToken(IConsumer consumer, string header)
         {
-            return GetToken(_tokenUri,  new Token { ConsumerKey = consumer.ConsumerKey, ConsumerSecret = consumer.ConsumerSecret }, XeroRequestUri, header);
+            return GetToken(_tokenUri,  new Token { ConsumerKey = consumer.ConsumerKey, ConsumerSecret = consumer.ConsumerSecret, Tenant = consumer.Tenant }, XeroRequestUri, header);
         }
 
         public IToken GetAccessToken(IToken token, string header)
@@ -73,7 +73,7 @@ namespace Xero.Api.Infrastructure.OAuth
             
             req.AddHeader("Authorization", header);
 
-            var response = req.Post(endPoint, string.Empty, query: "TenantType=PRACTICE");
+            var response = req.Post(endPoint, string.Empty, query: consumer.Tenant.Query);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -88,7 +88,8 @@ namespace Xero.Api.Infrastructure.OAuth
             {
                 TokenKey = qs["oauth_token"],
                 TokenSecret = qs["oauth_token_secret"],
-                OrganisationId = qs["xero_org_muid"]
+                OrganisationId = qs["xero_org_muid"],
+                Tenant = consumer.Tenant
             };
 
             if (!string.IsNullOrWhiteSpace(expires))

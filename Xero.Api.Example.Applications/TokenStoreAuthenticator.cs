@@ -1,6 +1,7 @@
 ﻿using System;
 using Xero.Api.Infrastructure.Interfaces;
 using Xero.Api.Infrastructure.OAuth;
+using Xero.Api.Infrastructure.ThirdParty.HttpUtility;
 
 namespace Xero.Api.Example.Applications
 {
@@ -88,14 +89,14 @@ namespace Xero.Api.Example.Applications
             var verifier = AuthorizeUser(requestToken);
 
             return Tokens.GetAccessToken(requestToken,
-                GetAuthorization(requestToken, "POST", Tokens.AccessUri, "TenantType=PRACTICE", verifier));
+                GetAuthorization(requestToken, "POST", Tokens.AccessUri, consumer.Tenant.Query, verifier));
         }
 
         protected string GetAuthorizeUrl(IToken token, string scope = null)
         {
             return new UriBuilder(Tokens.AuthorizeUri)
             {
-                Query = "oauth_token=" + token.TokenKey + "&scope=" + scope + "&TenantType=PRACTICE"
+                Query = $"oauth_token={token.TokenKey}&scope={scope}&{token.Tenant.Query}"
             }.Uri.ToString();
         }
 
@@ -104,10 +105,11 @@ namespace Xero.Api.Example.Applications
             var token = new Token
             {
                 ConsumerKey = consumer.ConsumerKey,
-                ConsumerSecret = consumer.ConsumerSecret
+                ConsumerSecret = consumer.ConsumerSecret,
+                Tenant = consumer.Tenant
             };
-            
-            var requestTokenOAuthHeader = GetAuthorization(token, "POST", Tokens.RequestUri, callback: CallBackUri, query: "TenantType=PRACTICE");
+
+            var requestTokenOAuthHeader = GetAuthorization(token, "POST", Tokens.RequestUri, callback: CallBackUri, query: consumer.Tenant.Query);
 
             return Tokens.GetRequestToken(consumer, requestTokenOAuthHeader);
         }
