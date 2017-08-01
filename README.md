@@ -92,6 +92,10 @@ There are different way to install this library:
 * Folders - Find, Add, Rename and Remove
 * Inbox - Find
 
+### Xero HQ
+* Clients - Find
+* Alerts - Create
+
 ## Things to note
 * The library tries to do as little as possible and provides a basis to be extended. There are examples of TokenStores, Authenticators and Application types. These examples provide enough to get you going, but are not a complete solution to all your needs. You will need to adapt them for your own use and situation. Private application will work out of the box, as they do not have to deal with tokens and OAuth.
 * The HTTP verbs are not used in the public part of the API. Create, Update and Find are used instead. This seperates the implementation from the the intent.
@@ -211,6 +215,7 @@ The examples are
 All communication with the [Xero API](http://developer.xero.com) is compressed at source. Writing to the API is done with XML. The data model classes have be attributed to give a small XML payload. All communication back from the API is JSON. These details are transparent to the user of the class library.
 
 ## Usage
+### Connect to an Organisation
 To get going quickly:
 
 1. Follow this getting started guide: http://developer.xero.com/documentation/getting-started/getting-started-guide/
@@ -247,6 +252,40 @@ static void Main(string[] args)
          new DefaultMapper(), new DefaultMapper());
 
 	var partner_contacts = partner_app_api.Contacts.Find().ToList();			
+}
+```
+### Connect to a Practice
+To get going quickly:
+
+1. Signup for a [free Xero account](https://www.xero.com/nz/signup/api/)
+2. Contact Xero to create a Practice
+3. [Add your application](https://app.xero.com/Application) (you’ll be prompted to login to Xero first)
+4. Create a console project and reference the  the following projects from this repo: `Xero.Api`, `Xero.Api.Example.Applications`, `Xero.Api.Example.TokenStores` 
+3. Use the snippets below depending on the type of application, modifying keys and certificate paths.
+
+Note, ensure the OAuth callback domain is blank on your registered application when using "oob" (out-of-band)
+```csharp
+static void Main(string[] args)
+{
+	var user = new ApiUser { Name = Environment.MachineName };
+	var tenant = new Practice();
+
+	// Public Application Sample
+    var public_app_api = new XeroHQApi("https://api.xero.com", new PublicAuthenticator("https://api.xero.com", "https://api.xero.com", "oob",
+		new MemoryTokenStore()),
+        new Consumer("your-consumer-key", "your-consumer-secret", tenant), user,
+        new DefaultMapper(), new DefaultMapper());
+
+    var public_clients = public_app_api.Clients.Find().ToList();
+
+	// Partner Application Sample
+	var partner_app_api = new XeroHQApi("https://api.xero.com", new PartnerAuthenticator("https://api.xero.com",
+        "https://api.xero.com", "oob", new MemoryTokenStore(),
+        @"C:\Dev\your_public_privatekey.pfx"),
+         new Consumer("your-consumer-key", "your-consumer-secret", tenant), user,
+         new DefaultMapper(), new DefaultMapper());
+
+	var partner_clients = partner_app_api.Clients.Find().ToList();			
 }
 ```
 ## Acknowledgements
