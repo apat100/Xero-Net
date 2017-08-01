@@ -260,7 +260,7 @@ To get going quickly:
 1. Signup for a [free Xero account](https://www.xero.com/nz/signup/api/)
 2. Contact Xero to create a Practice
 3. [Add your application](https://app.xero.com/Application) (you’ll be prompted to login to Xero first)
-4. Create a console project and reference the  the following projects from this repo: `Xero.Api`, `Xero.Api.Example.Applications`, `Xero.Api.Example.TokenStores` 
+4. Create a console project and reference the following projects from this repo: `Xero.Api`, `Xero.Api.Example.Applications`, `Xero.Api.Example.TokenStores` 
 3. Use the snippets below depending on the type of application, modifying keys and certificate paths.
 
 Note, ensure the OAuth callback domain is blank on your registered application when using "oob" (out-of-band)
